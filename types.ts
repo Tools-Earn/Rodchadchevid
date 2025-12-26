@@ -37,5 +37,5 @@ export interface StyleOption {
 export interface ToneOption {
   id: string;
   label: string;
-  emoji: string;
+  icon: React.ReactNode;
 }

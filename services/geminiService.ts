@@ -77,11 +77,18 @@ export const generatePreviewImage = async (prompt: string, aspectRatio: string):
   else if (aspectRatio.includes('16:9')) ratioParam = '16:9';
   else if (aspectRatio.includes('1:1')) ratioParam = '1:1';
 
+  // 1. Remove Markdown code blocks if present (often returned by text model)
+  // 2. Truncate prompt to ~800 chars to avoid model token limits for image generation
+  let cleanPrompt = prompt.replace(/```(thai|markdown)?/gi, '').replace(/```/g, '').trim();
+  if (cleanPrompt.length > 800) {
+    cleanPrompt = cleanPrompt.substring(0, 800);
+  }
+
   try {
     const response = await ai.models.generateContent({
       model: 'gemini-2.5-flash-image',
       contents: {
-        parts: [{ text: prompt }]
+        parts: [{ text: cleanPrompt }]
       },
       config: {
         imageConfig: {
@@ -92,9 +99,12 @@ export const generatePreviewImage = async (prompt: string, aspectRatio: string):
 
     for (const part of response.candidates?.[0]?.content?.parts || []) {
       if (part.inlineData) {
-        return `data:${part.inlineData.mimeType};base64,${part.inlineData.data}`;
+        return `data:${part.inlineData.mimeType || 'image/png'};base64,${part.inlineData.data}`;
       }
     }
+    
+    // Log if no image found (likely text refusal)
+    console.warn("No image part found in response:", response);
     return null;
   } catch (error) {
     console.error("Error generating image preview:", error);

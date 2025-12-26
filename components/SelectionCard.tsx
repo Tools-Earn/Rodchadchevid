@@ -21,27 +21,24 @@ export const SelectionCard: React.FC<SelectionCardProps> = ({
     <div 
       onClick={() => onClick(id)}
       className={`
-        relative flex flex-col items-center justify-between p-4 rounded-xl cursor-pointer border-2 transition-all duration-200 h-full
+        relative flex flex-col items-center justify-between p-4 rounded-2xl cursor-pointer h-full
+        neu-transition select-none
         ${selected 
-          ? 'border-primary bg-primary/5 shadow-md scale-[1.02]' 
-          : 'border-transparent bg-white hover:border-gray-200 hover:shadow-sm'
+          ? 'shadow-neu-pressed-sm bg-background text-primary' 
+          : 'shadow-neu-flat-sm bg-background hover:-translate-y-1 hover:shadow-neu-flat text-gray-500'
         }
       `}
     >
-      {selected && (
-        <div className="absolute top-2 right-2 w-3 h-3 bg-primary rounded-full animate-pulse z-10 shadow-sm border border-white" />
-      )}
-      
-      <div className={`mb-3 mt-2 ${selected ? 'text-primary' : 'text-gray-500'}`}>
+      <div className={`mb-3 mt-2 ${selected ? 'text-primary scale-110 transform transition-transform' : 'text-gray-400'}`}>
           {icon}
       </div>
 
       <div className="text-center w-full">
-        <h3 className={`font-semibold text-sm ${selected ? 'text-primary' : 'text-gray-800'}`}>
+        <h3 className={`font-bold text-sm ${selected ? 'text-primary' : 'text-gray-600'}`}>
             {label}
         </h3>
         {description && (
-            <p className="text-xs text-gray-500 mt-1 font-light line-clamp-2">
+            <p className={`text-xs mt-2 font-light line-clamp-2 ${selected ? 'text-violet-400' : 'text-gray-400'}`}>
             {description}
             </p>
         )}

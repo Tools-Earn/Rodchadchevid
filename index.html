@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>รสชาติของชีวิต - สร้างสรรค์อินโฟกราฟิกด้วย AI</title>
+    <title>Qualia - สร้างสรรค์อินโฟกราฟิกด้วย AI</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <script>
@@ -14,11 +14,18 @@
               sans: ['Sarabun', 'sans-serif'],
             },
             colors: {
-              primary: '#059669', // Emerald 600 (Main Green)
-              secondary: '#0d9488', // Teal 600 (Secondary Green)
-              accent: '#84cc16', // Lime 500 (Fresh Green)
-              background: '#F0FDF4', // Green 50 (Very light green background)
-              surface: '#FFFFFF',
+              primary: '#8b5cf6', // Violet 500
+              secondary: '#7c3aed', // Violet 600
+              accent: '#a78bfa', // Violet 400
+              background: '#F5F3FF', // Violet 50 (Pastel Purple Base)
+              surface: '#F5F3FF',
+            },
+            boxShadow: {
+              'neu-flat': '8px 8px 16px #dadae6, -8px -8px 16px #ffffff',
+              'neu-flat-sm': '5px 5px 10px #dadae6, -5px -5px 10px #ffffff',
+              'neu-pressed': 'inset 6px 6px 12px #dadae6, inset -6px -6px 12px #ffffff',
+              'neu-pressed-sm': 'inset 3px 3px 6px #dadae6, inset -3px -3px 6px #ffffff',
+              'neu-icon': '3px 3px 6px #dadae6, -3px -3px 6px #ffffff',
             }
           }
         }
@@ -27,22 +34,28 @@
     <style>
       body {
         font-family: 'Sarabun', sans-serif;
-        background-color: #F0FDF4; /* Matches tailwind background */
+        background-color: #F5F3FF;
+        color: #4c1d95; /* Deep Violet Text */
       }
-      /* Custom scrollbar for better aesthetics */
+      /* Custom scrollbar */
       ::-webkit-scrollbar {
         width: 8px;
         height: 8px;
       }
       ::-webkit-scrollbar-track {
-        background: #f1f1f1; 
+        background: #F5F3FF; 
       }
       ::-webkit-scrollbar-thumb {
-        background: #6ee7b7; /* Emerald 300 */
+        background: #c4b5fd; /* Violet 300 */
         border-radius: 4px;
       }
       ::-webkit-scrollbar-thumb:hover {
-        background: #34d399; /* Emerald 400 */
+        background: #a78bfa; /* Violet 400 */
+      }
+      
+      /* Smooth transitions for shadows */
+      .neu-transition {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       }
     </style>
   <script type="importmap">

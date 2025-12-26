@@ -1,5 +1,5 @@
 {
-  "name": "รสชาติของชีวิต",
+  "name": "Qualia",
   "description": "เปลี่ยนบทความซับซ้อน ให้เป็นภาพสรุปความรู้ที่เข้าใจง่ายและสวยงามด้วย AI",
   "requestFramePermissions": [
     "microphone"

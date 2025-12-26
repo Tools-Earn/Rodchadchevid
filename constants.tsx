@@ -15,7 +15,14 @@ import {
   Gamepad2,
   Ghost,
   Sticker,
-  Edit3
+  Edit3,
+  RectangleHorizontal,
+  RectangleVertical,
+  Square,
+  PartyPopper,
+  HeartHandshake,
+  Sparkles,
+  Sun
 } from 'lucide-react';
 
 export const CARTOON_STYLES: StyleOption[] = [
@@ -115,9 +122,9 @@ export const CARTOON_STYLES: StyleOption[] = [
 ];
 
 export const ASPECT_RATIOS = [
-  { value: AspectRatio.PORTRAIT, label: 'แนวตั้ง (9:16)', icon: '📱', desc: 'เหมาะสำหรับ TikTok, Reels, Story' },
-  { value: AspectRatio.SQUARE, label: 'จัตุรัส (1:1)', icon: '🟦', desc: 'เหมาะสำหรับ Instagram, Facebook Post' },
-  { value: AspectRatio.LANDSCAPE, label: 'แนวนอน (16:9)', icon: '💻', desc: 'เหมาะสำหรับ Presentation, YouTube' },
+  { value: AspectRatio.PORTRAIT, label: 'แนวตั้ง (9:16)', icon: <RectangleVertical className="w-6 h-6" />, desc: 'เหมาะสำหรับ TikTok, Reels, Story' },
+  { value: AspectRatio.SQUARE, label: 'จัตุรัส (1:1)', icon: <Square className="w-6 h-6" />, desc: 'เหมาะสำหรับ Instagram, Facebook Post' },
+  { value: AspectRatio.LANDSCAPE, label: 'แนวนอน (16:9)', icon: <RectangleHorizontal className="w-6 h-6" />, desc: 'เหมาะสำหรับ Presentation, YouTube' },
 ];
 
 export const VERBOSITY_LEVELS = [
@@ -139,8 +146,8 @@ export const VERBOSITY_LEVELS = [
 ];
 
 export const TONE_OPTIONS: ToneOption[] = [
-  { id: 'fun', label: 'สนุกสนาน (Fun)', emoji: '🎉' },
-  { id: 'friendly', label: 'เป็นกันเอง (Friendly)', emoji: '🤝' },
-  { id: 'bright', label: 'สดใส (Bright)', emoji: '✨' },
-  { id: 'formal', label: 'ทางการ (Formal)', emoji: '👔' },
+  { id: 'fun', label: 'สนุกสนาน (Fun)', icon: <PartyPopper className="w-6 h-6" /> },
+  { id: 'friendly', label: 'เป็นกันเอง (Friendly)', icon: <HeartHandshake className="w-6 h-6" /> },
+  { id: 'bright', label: 'สดใส (Bright)', icon: <Sun className="w-6 h-6" /> },
+  { id: 'formal', label: 'ทางการ (Formal)', icon: <Briefcase className="w-6 h-6" /> },
 ];
